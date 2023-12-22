@@ -4,8 +4,9 @@ import { usersController } from '../controllers/usersController.js'
 import verifyJWT from '../middlewares/verifyJWT.js';
 
 
-router.get('/', usersController.getUsers)
-router.get('/:id', usersController.getUser)
+router.get('/', verifyJWT, usersController.getUsers)
+router.get('/:id', verifyJWT, usersController.getUser)
+router.get('/email', verifyJWT, usersController.getUserByEmail)
 router.post('/', verifyJWT, usersController.register)
 router.put('/:id', verifyJWT, usersController.updateUser)
 router.delete('/:id', verifyJWT, usersController.deleteUser)

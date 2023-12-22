@@ -24,6 +24,16 @@ export const usersController = {
             })
         }
     },
+    getUserByEmail: async (req, res) => {
+        try {
+            const user = await User.findOne({ email });
+            res.status(200).json(user);
+        } catch (error) {
+            res.status(404).json({
+                message: error.message
+            })
+        }
+    },
     register: async (req, res) => {
         try {
             const {
