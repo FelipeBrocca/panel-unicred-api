@@ -1,6 +1,6 @@
 export const allowOrigins = [
     // prod
-    process.env.URL_REACT
+    'https://panel-unicred.vercel.app/'
     //dev
     // 'http://localhost:3000',
     // 'http://localhost:5000',
