@@ -24,23 +24,6 @@ export const usersController = {
             })
         }
     },
-    getUserByEmail: async (req, res) => {
-        try {
-            const user = await User.findOne({ email: req.params.email }).select('-password');
-    
-            if (user) {
-                res.status(200).json(user);
-            } else {
-                res.status(404).json({
-                    message: 'Usuario no encontrado',
-                });
-            }
-        } catch (error) {
-            res.status(500).json({
-                message: 'Error interno del servidor',
-            });
-        }
-    },    
     register: async (req, res) => {
         try {
             const {
