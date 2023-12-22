@@ -15,7 +15,7 @@ export const usersController = {
     },
     getUser: async (req, res) => {
         try {
-            const user = await User.findById(req.params.id);
+            const user = await User.findById(req.params.id).select('-password');
 
             res.status(200).json(user);
         } catch (error) {
