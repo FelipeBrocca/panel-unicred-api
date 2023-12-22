@@ -26,10 +26,8 @@ export const usersController = {
     },
     getUserByEmail: async (req, res) => {
         try {
-            console.log(req.params.id);
-            console.log(req.body);
-            const user = await User.findOne(req.params.email).select('-password');
-
+            const user = await User.findOne({ email: req.params.email }).select('-password');
+    
             if (user) {
                 res.status(200).json(user);
             } else {
@@ -42,8 +40,7 @@ export const usersController = {
                 message: 'Error interno del servidor',
             });
         }
-
-    },
+    },    
     register: async (req, res) => {
         try {
             const {
