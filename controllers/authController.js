@@ -33,24 +33,23 @@ export const login = async (req, res) => {
         { expiresIn: '7d' }
     )
 
-    res.cookie('token', accessToken, {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'None',
-        maxAge: 7 * 24 * 60 * 60 * 1000
-    })
-    res.cookie('username', foundUser.username, {
+    const cookieOptions = {
         httpOnly: false,
         secure: true,
         sameSite: 'None',
-        maxAge: 7 * 24 * 60 * 60 * 1000
-    })
-    res.cookie('email', foundUser.email, {
-        httpOnly: false,
-        secure: true,
-        sameSite: 'None',
-        maxAge: 7 * 24 * 60 * 60 * 1000
-    })
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+    };
+
+    const cookiesToSet = {
+        token: accessToken,
+        username: foundUser.username,
+        email: foundUser.email,
+    };
+
+    for (const [cookieName, cookieValue] of Object.entries(cookiesToSet)) {
+        res.cookie(cookieName, cookieValue, cookieOptions);
+    }
+
     res.status(200).json({ message: 'Logged in succesfully' })
 }
 
