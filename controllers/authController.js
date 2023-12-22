@@ -40,9 +40,6 @@ export const login = async (req, res) => {
         maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    localStorage.setItem('username', foundUser.username);
-    localStorage.setItem('email', foundUser.email);
-
 
     res.status(200).json({ message: 'Logged in succesfully' })
 }
