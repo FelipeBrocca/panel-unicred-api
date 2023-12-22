@@ -35,20 +35,20 @@ export const login = async (req, res) => {
 
     res.cookie('token', accessToken, {
         httpOnly: true,
-        // secure: true,
-        // sameSite: 'None',
+        secure: true,
+        sameSite: 'None',
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
     res.cookie('username', foundUser.username, {
         httpOnly: false,
-        // secure: true,
-        // sameSite: 'None',
+        secure: true,
+        sameSite: 'None',
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
     res.cookie('email', foundUser.email, {
         httpOnly: false,
-        // secure: true,
-        // sameSite: 'None',
+        secure: true,
+        sameSite: 'None',
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
     res.status(200).json({ message: 'Logged in succesfully' })
