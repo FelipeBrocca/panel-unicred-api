@@ -27,7 +27,10 @@ export const usersController = {
     getUserByEmail: async (req, res) => {
         try {
             const user = await User.findOne({ email }).select('-password');
-            res.status(200).json(user);
+
+            if (user) {
+                res.status(200).json(user);
+            }
         } catch (error) {
             res.status(404).json({
                 message: error.message
