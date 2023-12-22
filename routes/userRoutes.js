@@ -6,7 +6,6 @@ import verifyJWT from '../middlewares/verifyJWT.js';
 
 router.get('/', verifyJWT, usersController.getUsers)
 router.get('/:id', verifyJWT, usersController.getUser)
-router.get('/email/:email', verifyJWT, usersController.getUserByEmail)
 router.post('/', verifyJWT, usersController.register)
 router.put('/:id', verifyJWT, usersController.updateUser)
 router.delete('/:id', verifyJWT, usersController.deleteUser)
