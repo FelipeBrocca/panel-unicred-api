@@ -5,6 +5,6 @@ export const allowOrigins = [
 // prod
 //dev
 // 'http://localhost:9001',
-// 'http://localhost:3000'
+'http://localhost:3000'
 // 'http://localhost:5000',
 
