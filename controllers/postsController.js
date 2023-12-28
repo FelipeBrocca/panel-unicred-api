@@ -48,6 +48,7 @@ export const postsControllers = {
                 title,
                 body,
                 category,
+                video,
                 createdAt
             } = req.body;
 

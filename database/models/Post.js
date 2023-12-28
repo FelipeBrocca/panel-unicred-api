@@ -24,6 +24,10 @@ const menusSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
+    video: {
+        type: String,
+        default: null
+    },
     createdAt: {
         type: Date,
         required: true
