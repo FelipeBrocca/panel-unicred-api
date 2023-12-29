@@ -84,6 +84,7 @@ export const postsControllers = {
                 title,
                 body,
                 category,
+                video,
                 image: images,
                 createdAt
             });
