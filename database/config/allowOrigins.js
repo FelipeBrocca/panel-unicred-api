@@ -1,6 +1,6 @@
 export const allowOrigins = [
     'https://panel-unicred.vercel.app',
-    'https://www.unicred.com.ar/'
+    'https://www.unicred.com.ar'
     //DEV
 ]
 // prod
